@@ -46,9 +46,7 @@ fs.createReadStream('sierpinski.png')
   }
 
   function calculateNewDot(lastDot, edge, trianglePoints) {
-  	console.log(lastDot)
-  	console.log(trianglePoints[edge])
-  	const x = (lastDot[0] + trianglePoints[edge][0]) / 2;
-  	const y = (lastDot[1] + trianglePoints[edge][1]) / 2;
-  	return [Math.trunc(x), Math.trunc(y)];
+    const x = (lastDot[0] + trianglePoints[edge][0]) / 2;
+    const y = (lastDot[1] + trianglePoints[edge][1]) / 2;
+    return [Math.trunc(x), Math.trunc(y)];
   }
