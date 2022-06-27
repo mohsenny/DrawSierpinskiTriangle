@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "canvas": "^2.9.2",
+    "pngjs": "^6.0.0",
     "pngjs-draw": "^0.0.6"
   }
 }

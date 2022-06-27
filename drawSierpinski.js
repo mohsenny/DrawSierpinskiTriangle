@@ -21,27 +21,28 @@ fs.createReadStream('sierpinski.png')
     firstDot = getFirstDotCoordinate()
     this.drawPixel(firstDot[0], firstDot[1], this.colors.green())
 
+    // draw the rest in a loop
     let randomEdge = ''
     let lastDot = firstDot
     
- 	  for (let i = 0; i < 20000; i++) {
- 		   randomEdge = chooseRandomEdge();
- 		   newDot = calculateNewDot(lastDot, randomEdge, trianglePoints);
-    	 this.drawPixel(newDot[0], newDot[1], this.colors.red());
-     	lastDot = newDot;
- 	  }
+    for (let i = 0; i < 25000; i++) {
+      randomEdge = chooseRandomEdge();
+      newDot = calculateNewDot(lastDot, randomEdge, trianglePoints);
+      this.drawPixel(newDot[0], newDot[1], this.colors.red());
+      lastDot = newDot;
+    }
 
     // Writes file
     this.pack().pipe(fs.createWriteStream('sierpinski.out.png'));
   });
 
   function chooseRandomEdge() {
-  	items = [0, 1, 2]
- 	 return items[Math.floor(Math.random()*items.length)]
+    items = [0, 1, 2]
+    return items[Math.floor(Math.random()*items.length)]
   }
 
   function getFirstDotCoordinate() {
-  	return [180, 150]
+    return [180, 150]
   }
 
   function calculateNewDot(lastDot, edge, trianglePoints) {
